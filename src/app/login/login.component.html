@@ -1,0 +1,38 @@
+<div class="container-fluid bg-primary">
+  <div class="container p-5">
+    <div class="container p-5">
+      <div class="container p-md-5">
+        <div class="container offset-md-2 col-md-8 p-md-5">
+          <div class="text-center text-white">
+            <h5> Login using your Email</h5>
+          </div>
+          <div>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email" [formControl]="myForm.controls['email']">
+              </div>
+              <div class="alert alert-danger" *ngIf="myForm.controls['email'].invalid && myForm.controls['email'].touched">
+              Enter a valid Email!
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" [formControl]="myForm.controls['password']">
+              </div>
+              <div class="alert alert-danger" *ngIf="myForm.controls['password'].invalid && myForm.controls['password'].touched">
+              Password is required!
+              </div>
+              <div class="text=center">
+                <button type="submit" class="btn btn-block btn-warning round" [disabled]="myForm.invalid">Login</button> 
+              </div>
+              <div class="text-center mt-3">
+                <h6><a class="text-white" href="#">Don't have an account? Create one</a></h6>
+              </div> 
+            </form>
+          </div><br>  
+        <div class="alert alert-danger" *ngIf="userError">
+        {{userError.message}}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

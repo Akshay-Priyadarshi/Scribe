@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+      <form class="col-sm-12" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <h1 class="text-white text-center">Sign up for free</h1>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <input class="form-control" type="text" placeholder="First Name" [formControl]="myForm.controls['firstName']">
+          </div>
+          <div class="form-group col-sm-6">
+            <input class="form-control" type="text" placeholder="Last Name" [formControl]="myForm.controls['lastName']">
+          </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="(myForm.controls['firstName'].touched && myForm.controls['firstName'].invalid) || (myForm.controls['lastName'].touched && myForm.controls['lastName'].invalid)">
+          First Name or Last Name is missing! 
+        </div>
+        <div class="form-group px-0">
+          <input class="form-control" type="email" placeholder="Email" [formControl]="myForm.controls['email']">
+          <div class="form-text text-white">
+            We will never share your email with anyone else
+          </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="myForm.controls['email'].touched && myForm.controls['email'].invalid">
+          Email is invalid! 
+        </div>
+        <div class="form-group px-0">
+          <input class="form-control" type="password" placeholder="Password" [formControl]="myForm.controls['password']">
+        </div>
+        <div class="alert alert-danger" *ngIf="myForm.controls['password'].touched && myForm.controls['password'].invalid">
+          Enter a valid Password
+        </div>
+        <div class="form-group px-0">
+          <input class="form-control" type="password" placeholder="Confirm Password" [formControl]="myForm.controls['confirmPassword']">
+        </div>
+        <div class="form-group">
+          <input class="btn btn-warning col-sm-12 sub-but" type="submit" [disabled]="myForm.invalid">
+        </div>
+      </form>
+      <div class="alert alert-danger" *ngIf="userError">
+        {{userError.message}}
+      </div>
+  </div>
+</div>
