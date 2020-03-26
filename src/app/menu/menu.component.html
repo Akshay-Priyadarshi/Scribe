@@ -7,10 +7,25 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive = "active" data-toggle="collapse" data-target=".navbar-collapse">
+      <li class="nav-item" routerLinkActive = "active" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="!loggedIn">
          <a class="nav-link" routerLink="/home">Home<span class="sr-only">(current) </span></a>
       </li>
+      <li class="nav-item" routerLinkActive = "active" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="loggedIn">
+         <a class="nav-link" routerLink="/myblogs">My Blogs<span class="sr-only">(current) </span></a>
+      </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item right" routerLinkActive = "active" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="!loggedIn">
+        <button class="btn btn-outline-light px-5" routerLink="/login">Login</button>
+      </li>
+      <li class="nav-item right" *ngIf="loggedIn">
+        <a class="nav-link" routerLink="/">My Profile</a>
+      </li>
+      <li class="nav-item right" *ngIf="loggedIn">
+        <a class="nav-link" routerLink="/" (click)="logout()">Log Out</a>
+      </li>
+    </ul>
+    
     
   </div>
 </nav>
