@@ -12,6 +12,7 @@ import { AuthService } from './auth.service';
 import { MenuComponent } from './menu/menu.component';
 import { MyblogsComponent } from './myblogs/myblogs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './auth.guard';
 
 var Config = {
   apiKey: "AIzaSyDcKw3SHNgy7vhJT9_qnNrDu2167JEpQZ8",
@@ -31,6 +32,6 @@ firebase.initializeApp(Config);
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule ],
   declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent],
   bootstrap:    [ AppComponent ],
-  providers: [AuthService]
+  providers: [AuthService,AuthGuard]
 })
 export class AppModule { }
