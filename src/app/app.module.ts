@@ -11,6 +11,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthService } from './auth.service';
 import { MenuComponent } from './menu/menu.component';
 import { MyblogsComponent } from './myblogs/myblogs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 var Config = {
   apiKey: "AIzaSyDcKw3SHNgy7vhJT9_qnNrDu2167JEpQZ8",
@@ -28,7 +29,7 @@ firebase.initializeApp(Config);
 }
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule ],
-  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent],
+  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent],
   bootstrap:    [ AppComponent ],
   providers: [AuthService]
 })
