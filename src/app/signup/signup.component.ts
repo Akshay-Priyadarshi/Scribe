@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 
 @Component({
   selector: 'app-signup',
@@ -40,22 +44,33 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  onSubmit(form)
-  {
-    let email: string = form.value.email;
-     let password: string = form.value.password;
-     let firstName: string = form.value.firstName;
-     let lastName: string = form.value.lastName;
+  onSubmit(signupform){
+    let email: string = signupform.value.email;
+    let password: string = signupform.value.password;
+    let firstName: string = signupform.value.firstName;
+    let lastName: string = signupform.value.lastName;
 
-     this.authService.signup(email,password,firstName,lastName).then((response)=>
-     {
-       console.log(response);
-       this.message = "You have successfully Signed Up";
-     }).catch((error)=>
-     {
-       console.log(error);
-       this.userError = error; 
-     })
+    this.authService.signup(email, password, firstName, lastName).then((user: any) => {
+
+      firebase.firestore().collection("users").doc(user.uid).set({
+        firstName: signupform.value.firstName,
+        lastName: signupform.value.lastName,
+        email: signupform.value.email,
+        photoURL: user.photoURL,
+        interests: "",
+        bio: "",
+        hobbies: ""
+      }).then(() => {
+        this.message = "You have been signed up successfully. Please login."
+      })
+      
+    
+    }).catch((error) => {
+      console.log(error);
+      this.userError = error;
+    })
+
+
   }
 
   ngOnInit() {

@@ -35,6 +35,9 @@
           <input class="btn btn-warning col-sm-12 sub-but" type="submit" [disabled]="myForm.invalid">
         </div>
       </form>
+      <div class="alert alert-success" *ngIf="message.length > 0">
+          {{ message }}
+        </div>
       <div class="alert alert-danger" *ngIf="userError">
         {{userError.message}}
       </div>

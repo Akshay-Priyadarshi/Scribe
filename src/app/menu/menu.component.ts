@@ -9,40 +9,40 @@ import 'firebase/auth';
 })
 export class MenuComponent implements OnInit {
 
-  loggedIn: boolean;
+  loggedIn: boolean = false;
   user: any;
+  uid: string;
 
+  constructor() {
 
-  constructor() { 
     this.user = firebase.auth().currentUser;
-    if(this.user){
+    
+    if(this.user) {
       this.loggedIn = true;
-    }
-    else{
+    } else {
       this.loggedIn = false;
     }
 
-    firebase.auth().onAuthStateChanged((user)=>{
+    firebase.auth().onAuthStateChanged((user) => {
+      this.user = user;
       if(user){
-        console.log(user);
         this.loggedIn = true;
-      }
-      else{
+      } else {
         this.loggedIn = false;
       }
+
     })
+
   }
 
-
   ngOnInit() {
-    
+    if(this.user){
+      this.uid = "profile/"+this.user.uid;
+    }
   }
 
   logout(){
-    this.user = firebase.auth().currentUser;
-    if(this.user){
-      firebase.auth().signOut();
-      this.user = undefined;
-    }
+    firebase.auth().signOut();
   }
+
 }

@@ -20,7 +20,7 @@ export class AuthService {
          }
        ).then(()=>
         {
-         resolve();
+         resolve(response.user);
         }).catch((error)=>
         {
          reject(error);
