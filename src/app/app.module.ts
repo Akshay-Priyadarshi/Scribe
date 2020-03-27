@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule} from './app-routing.module';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
+import { NgxEditorModule} from 'ngx-editor';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +15,8 @@ import { MyblogsComponent } from './myblogs/myblogs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
+import { CreateComponent } from './create/create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 var Config = {
   apiKey: "AIzaSyDcKw3SHNgy7vhJT9_qnNrDu2167JEpQZ8",
@@ -30,8 +33,8 @@ if(!firebase.apps.length){
 firebase.initializeApp(Config);
 }
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule ],
-  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent, HomeComponent],
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, NgxEditorModule, HttpClientModule ],
+  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent, HomeComponent, CreateComponent],
   bootstrap:    [ AppComponent ],
   providers: [AuthService,AuthGuard]
 })
