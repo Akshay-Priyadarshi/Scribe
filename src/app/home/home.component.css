@@ -1,4 +1,17 @@
 .background-left{
   background-color: #2e7cf6;
-  background-image: url('');
+  background-image: url('https://github.com/Akshay-Priyadarshi/Scribe/blob/master/src/assets/Sign-Up-BG-Image.png?raw=true');
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-position: left bottom;
+}
+
+.background-right{
+  background-color: #2e7cf6;
+}
+
+.resize{
+  margin-right: 3mm;
+  height:5mm;
+  width:5mm;
 }
