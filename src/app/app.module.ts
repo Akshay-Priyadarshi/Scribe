@@ -13,6 +13,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MyblogsComponent } from './myblogs/myblogs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './home/home.component';
 
 var Config = {
   apiKey: "AIzaSyDcKw3SHNgy7vhJT9_qnNrDu2167JEpQZ8",
@@ -30,7 +31,7 @@ firebase.initializeApp(Config);
 }
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule ],
-  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent],
+  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent, HomeComponent],
   bootstrap:    [ AppComponent ],
   providers: [AuthService,AuthGuard]
 })
