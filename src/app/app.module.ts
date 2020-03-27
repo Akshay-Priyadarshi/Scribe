@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './create/create.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
+import { ViewComponent } from './view/view.component';
 
 var Config = {
   apiKey: "AIzaSyDcKw3SHNgy7vhJT9_qnNrDu2167JEpQZ8",
@@ -35,7 +36,7 @@ firebase.initializeApp(Config);
 }
 @NgModule({
   imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, NgxEditorModule, HttpClientModule ],
-  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent, HomeComponent, CreateComponent, PostComponent],
+  declarations: [ AppComponent, LoginComponent, SignupComponent, MenuComponent, MyblogsComponent, ProfileComponent, HomeComponent, CreateComponent, PostComponent, ViewComponent],
   bootstrap:    [ AppComponent ],
   providers: [AuthService,AuthGuard]
 })

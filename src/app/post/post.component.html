@@ -4,7 +4,7 @@
       <h4>{{postData.title}}</h4>
     </div>
     <div class="card-text">
-      {{postData.content}}
+      {{postData.content.substring(0,50)}} ...<a class="card-link" routerLink="/view/{{post.id}}">Read more</a>
     </div>
   </div>
   <div class="card-footer text-muted">
