@@ -15,3 +15,7 @@
   height:5mm;
   width:5mm;
 }
+
+.vertical-divider{
+  border-right: 1px solid #ddd;
+}
