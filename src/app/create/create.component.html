@@ -4,9 +4,9 @@
         <label>Post Title</label>
         <input type="text" class="form-control" placeholder="Your title must be eye-catching" name="title" [(ngModel)]="title">
       </div>
-      <div class="form-group">
+      <div class="formgroup">
         <label>Post Content</label>
-        <app-ngx-editor [config]="editorConfig" [(ngModel)]="content"></app-ngx-editor>
+        <textarea class="form-control area" placeholder="Whats on your mind? Write it out!!" [(ngModel)]="content"></textarea>
       </div>
       <div class="form-group float-right">
         <button (click)="createPost()" class="btn btn-warning sub-but px-5">Post</button>
