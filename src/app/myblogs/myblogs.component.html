@@ -1,1 +1,13 @@
-my blogs
+<div class="row mb-5">
+  <div class="offset-sm-1 col-sm-3">
+    <div class="card mt-5">
+      <img class="card-img-top" [src]="user.photoURL">
+      <div class="card-body">
+        <h4 class="card-title">{{user.displayName}}</h4>
+        <a class="btn btn-sm btn-link" routerLink="/edit-profile/{{user.uid}}">Edit Profile</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-7">
+  </div>
+</div>
