@@ -36,9 +36,6 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.user){
-      this.uid = "profile/"+this.user.uid;
-    }
   }
 
   logout(){
